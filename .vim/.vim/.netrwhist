@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/wubellac/src/mstt/seqs'
+let g:netrw_dirhist_2='/home/wubellac/src/yada-mostt/mot/devices/m3simbus'
+let g:netrw_dirhist_3='/home/wubellac/src/ssdev-ecat/etc/configurations/dsoc'
+let g:netrw_dirhist_4='/home/wubellac/src/ssdev-ecat/externals/ecat'
+let g:netrw_dirhist_5='/home/wubellac/src/ssdev-ecat-base/etc/configurations/sw_dev_bbx'
+let g:netrw_dirhist_6='/mnt/c/Users/wubellac/Documents/ssdev-ecat/etc/ssdev-ecat-configurations/tuning_procedure'
