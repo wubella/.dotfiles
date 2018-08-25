@@ -18,7 +18,7 @@ set $mod Mod1
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:Liberation 7
+font pango:Liberation 9
 
 for_window [class="^.*"] border pixel 1
 hide_edge_borders both
@@ -37,7 +37,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Liberation-7' -nb '#303030'"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Liberation-9' -nb '#303030'"
 
 # change focus
 bindsym $mod+h focus left
@@ -198,7 +198,7 @@ bindsym $mod+r mode "resize"
 bar {
   position top
   status_command i3status
-  height 15
+  height 18
   colors {
     background          $barbg
     statusline          $lightgray

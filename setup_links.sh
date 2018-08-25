@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-ln -sf ~/dotfiles/.bashrc ~/.bashrc
-ln -sf ~/dotfiles/.vim ~/.vim
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/.Xresources ~/.Xresources
-ln -sf ~/dotfiles/.i3 ~/.i3
-ln -sf ~/dotfiles/.config ~/.config
+ln -sf ~/.dotfiles/.bashrc ~/.bashrc
+ln -sf ~/.dotfiles/.vim ~/.vim
+ln -sf ~/.dotfiles/.vimrc ~/.vimrc
+ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/.Xresources ~/.Xresources
+ln -sf ~/.dotfiles/.i3 ~/.i3
+ln -sf ~/.dotfiles/.config ~/.config
 
 #sudo apt install xserver-xorg-input-synaptics
 #update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/st 50
