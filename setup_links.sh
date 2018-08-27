@@ -8,6 +8,8 @@ ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/.Xresources ~/.Xresources
 ln -sf ~/.dotfiles/.i3 ~/.i3
 ln -sf ~/.dotfiles/.config ~/.config
+ln -sf ~/.dotfiles/background.png ~/.background.png
+ln -sf ~/.dotfiles/.dircolors ~/.dircolors
 
 #sudo apt install xserver-xorg-input-synaptics
 #update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/st 50

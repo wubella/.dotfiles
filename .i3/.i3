@@ -1,1 +1,0 @@
-/home/wubella/dotfiles/.i3

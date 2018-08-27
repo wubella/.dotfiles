@@ -213,4 +213,5 @@ bar {
 
 exec --no-startup-id xset r rate 200 25 # Set initial delay 300ms, repeat 35ms
 exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec_always --no-startup-id feh --bg-fill ~/.background.png
 
