@@ -8,3 +8,10 @@
   trustExitCode = true
 [alias]
   d = difftool
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[core]
+	excludesfile = /home/wubella/.gitignore_global

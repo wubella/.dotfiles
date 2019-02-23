@@ -51,6 +51,9 @@ nnoremap <c-l> <c-w>l
 set tabstop=2 expandtab shiftwidth=2
 autocmd FileType c setlocal autoindent cindent expandtab
 au BufRead,BufNewFile *.md set filetype=pandoc
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.tex setlocal spell
+autocmd BufRead,BufNewFile *.txt setlocal spell
 
 "prettify split boundaries
 set splitbelow
@@ -71,6 +74,10 @@ hi GitGutterAdd ctermfg=Green ctermbg=Black
 hi GitGutterChange ctermfg=Yellow ctermbg=Black
 hi GitGutterChangeDelete ctermbg=Black
 
+"underling misspellings
+hi clear SpellBad
+hi SpellBad cterm=underline ctermbg=Black ctermfg=DarkRed
+
 "tabcomplete attempt needs more work
 set wildmode=longest,list,full
 set wildmenu
@@ -78,7 +85,7 @@ set completeopt=longest,menuone
 
 execute pathogen#infect()
 
-function MyTabLine()
+function! MyTabLine()
     let s = ''
     for i in range(tabpagenr('$'))
       " select the highlighting
@@ -125,7 +132,7 @@ function MyTabLine()
 "
 set tabline=%!MyTabLine()  " custom tab pages line
 
-function ShowSpaces(...)
+function! ShowSpaces(...)
   let @/='\v(\s+$)|( +\ze\t)'
   let oldhlsearch=&hlsearch
   if !a:0
@@ -136,14 +143,14 @@ function ShowSpaces(...)
   return oldhlsearch
 endfunction
 
-function TrimSpaces() range
+function! TrimSpaces() range
   let oldhlsearch=ShowSpaces(1)
   execute a:firstline.",".a:lastline."substitute ///gec"
   let &hlsearch=oldhlsearch
 endfunction
 
-command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
-command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
+command! -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
+command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
 nnoremap <F12>     :ShowSpaces 1<CR>
 nnoremap <S-F12>   m`:TrimSpaces<CR>``
 vnoremap <S-F12>   :TrimSpaces<CR>

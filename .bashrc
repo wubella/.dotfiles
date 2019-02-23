@@ -91,7 +91,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # colors for terminal
-echo -ne "\e]4;0;#1d1d1d\a"   #black       
+echo -ne "\e]4;0;#111111\a"   #black
 echo -ne "\e]4;1;#cc6666\a"   #red         
 echo -ne "\e]4;2;#b5bd68\a"   #green       
 echo -ne "\e]4;3;#f0c674\a"   #yellow      
@@ -106,7 +106,7 @@ echo -ne "\e]4;11;#f0c674\a"  #lightyellow
 echo -ne "\e]4;12;#81a2be\a"  #lightblue   
 echo -ne "\e]4;13;#b294bb\a"  #lightmagenta
 echo -ne "\e]4;14;#8abeb7\a"  #lightcyan   
-echo -ne "\e]4;15;#f9f9f9\a"  #white       
+echo -ne "\e]4;15;#e9e9e9\a"  #white
 
 #echo -ne "\e]4;9;#ec8686\a"   #lightred    
 #echo -ne "\e]4;10;#d5dd88\a"  #lightgreen  
