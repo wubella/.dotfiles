@@ -18,7 +18,12 @@ set $mod Mod1
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango: Roboto, 8
+
+#t440p
+#font pango: Roboto, 8
+
+#x390
+font pango: Roboto, 9
 
 for_window [class="^.*"] border pixel 1
 #hide_edge_borders vertical
@@ -37,7 +42,13 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Roboto-8' -nb '#1b1b1b'"
+
+#t440p
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Roboto-8' -nb '#1b1b1b'"
+#x390
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Roboto-9' -nb '#1b1b1b'"
+
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/media/screenshots && mv $f ~/media/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
 # change focus
 bindsym $mod+h focus left
@@ -97,6 +108,12 @@ bindsym XF86AudioMicMute exec amixer -D pulse set Capture toggle
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym Shift+XF86MonBrightnessUp exec xbacklight -set 100 # set to min brightness
+bindsym Shift+XF86MonBrightnessDown exec xbacklight -set 1 # set to max brightness
+
+# recording
+bindsym XF86Favorites exec arecord -vv -fdat ~/media/$(date +"%Y%m%d_%H%M%S").wav
+bindsym Shift+XF86Favorites exec killall arecord
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -109,6 +126,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym $mod+F1 workspace 11
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -121,6 +139,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+F1 move container to workspace 11
 
 set $black        #1b1b1b
 set $red          #cc6666
@@ -156,14 +175,15 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-set $mode_system   (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system   (l) lock, (e) logout, (s) suspend, (h) hibernate
+# , (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.config/i3/i3exit lock, mode "default"
     bindsym e exec --no-startup-id ~/.config/i3/i3exit logout, mode "default"
     bindsym s exec --no-startup-id ~/.config/i3/i3exit suspend, mode "default"
     bindsym h exec --no-startup-id ~/.config/i3/i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.config/i3/i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit shutdown, mode "default"
+    #bindsym r exec --no-startup-id ~/.config/i3/i3exit reboot, mode "default"
+    #bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -202,9 +222,16 @@ bindsym $mod+r mode "resize"
 bar {
   #status_command i3status
   status_command i3status -c ~/.config/i3/i3status.conf
-  font pango: Roboto, Font Awesome 5 Free, 8
+  
+  #x390
+  font pango: Roboto, Font Awesome 5 Free, 9
+  height 17
+ 
+  #t440p
+  #font pango: Roboto, Font Awesome 5 Free, 8
+  # height 15
+  
   position top
-  height 15
   colors {
     background          $black
     #for multimonitor
@@ -225,5 +252,7 @@ gaps inner 7
 
 exec --no-startup-id xset r rate 200 25 # Set initial delay 300ms, repeat 35ms
 exec --no-startup-id compton --config ~/.config/compton.conf -b
-exec_always --no-startup-id feh --bg-fill ~/.background.png
+exec_always --no-startup-id feh --bg-fill ~/.background.png --bg-fill ~/.background.png
 
+exec --no-startup-id i3-msg 'workspace 1; exec st'
+exec --no-startup-id i3-msg 'workspace 2; exec firefox'

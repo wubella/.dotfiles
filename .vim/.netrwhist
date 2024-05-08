@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/wubella/tmp'
-let g:netrw_dirhist_2='/home/wubella/.dwm'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/wubella/proj/mpac_a1/ctrl/walk_quasi_idqp'
+let g:netrw_dirhist_2='/home/wubella/proj/VisualizeAutomata/static_examples/gold_bank'
+let g:netrw_dirhist_1='/home/wubella/proj/mpac_a1_pt/ctrl/walk_quasi_idqp'
+let g:netrw_dirhist_0='/home/wubella/proj/roa_fit/plotting_scripts'
+let g:netrw_dirhist_9='/home/wubella/proj/mpac_a1_demo/ctrl/walk_quasi_idqp'
+let g:netrw_dirhist_8='/home/wubella/proj/VisualizeAutomata/static_examples/medium_example'
+let g:netrw_dirhist_7='/home/wubella/proj/VisualizeAutomata/static_examples/gold_bank'
+let g:netrw_dirhist_6='/home/wubella/tools/dotfiles/.config/i3'
+let g:netrw_dirhist_5='/home/wubella/proj/mpac_a1_jpl/io'
+let g:netrw_dirhist_4='/home/wubella/proj/mpac_a1_jpl'

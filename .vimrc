@@ -55,6 +55,9 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.tex setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 
+"don't auto comment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 "prettify split boundaries
 set splitbelow
 set splitright

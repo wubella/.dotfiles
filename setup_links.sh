@@ -1,23 +1,37 @@
 #!/usr/bin/env bash
 
-ln -sfn ~/.dotfiles/.bashrc ~/.bashrc
-ln -sfn ~/.dotfiles/.vim ~/.vim
-ln -sfn ~/.dotfiles/.vimrc ~/.vimrc
-ln -sfn ~/.dotfiles/.tmux.conf ~/.tmux.conf
-ln -sfn ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -sfn ~/.dotfiles/background.png ~/.background.png
-ln -sfn ~/.dotfiles/.dircolors ~/.dircolors
-ln -sfn ~/.dotfiles/.inputrc ~/.inputrc
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+ln -sfn $DIR/.bashrc ~/.bashrc
+ln -sfn $DIR/.vim ~/.vim
+ln -sfn $DIR/.vimrc ~/.vimrc
+ln -sfn $DIR/.tmux.conf ~/.tmux.conf
+ln -sfn $DIR/.gitconfig ~/.gitconfig
+ln -sfn $DIR/.gitignore_global ~/.gitignore_global
+ln -sfn $DIR/background.png ~/.background.png
+ln -sfn $DIR/.dircolors ~/.dircolors
+ln -sfn $DIR/.inputrc ~/.inputrc
 
 mkdir -p ~/.config
-ln -sfn ~/.dotfiles/.config/* ~/.config/
+ln -sfn $DIR/.config/* ~/.config/
 
 mkdir -p ~/.fonts
-ln -sfn ~/.dotfiles/.fonts/* ~/.fonts/
+ln -sfn $DIR/.fonts/* ~/.fonts/
 
-#don't need this for dwm
 #update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/st 50
 
+#make this a link?
+# for touchpad and trackpoint
+#sudo cp $DIR/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf
+# for xbacklight
+#sudo cp $DIR/20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
+
+# X390 font size: 18 pixel tall
+
+#notes for x390 install, start with ubuntu minimal
+#sudo apt install compton
+
+#notes for t440p install, start with ubuntu server
 #dont need #sudo apt install wpasupplicant
   #sudo apt install wicd wicd-ncurses wicd-cli
   #install patched version of wicd-curses?
@@ -37,7 +51,6 @@ ln -sfn ~/.dotfiles/.fonts/* ~/.fonts/
 #sudo apt install pulseaudio
 #sudo apt install ffmpeg
 #sudo apt install scrot
-#sudo apt install physlock
 
 ### t440p synaptics touchpad ###
 #sudo apt install xserver-xorg-input-synaptics
